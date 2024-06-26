@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerador de Chaves Safin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .flash-message {
+            margin-top: 20px;
+            padding: 10px;
+            text-align: center;
+            border-radius: 4px;
+        }
+        .flash-error {
+            background-color: #f44336;
+            color: white;
+        }
+        .flash-success {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gerador de Chaves Safin</h1>
+    <form action="/gerar-chave" method="post">
+        <label for="loja">Selecione a loja:</label>
+        <select name="loja" id="loja">
+            <option value="1">Grupo Cred</option>
+            <option value="2">Safin</option>
+            <option value="3">Xinova</option>
+        </select><br><br>
+        <label for="cpf">CPF:</label>
+        <input type="text" id="cpf" name="cpf" required><br><br>
+        <label for="data">Data (ano/mes/dia):</label>
+        <input type="text" id="data" name="data" required><br><br>
+        <label for="hora">Hora (hora/minuto/segundo):</label>
+        <input type="text" id="hora" name="hora" required><br><br>
+        <label for="adesao">Adesão (8 dígitos numéricos):</label>
+        <input type="text" id="adesao" name="adesao" pattern="[0-9]{8}" title="Digite 8 dígitos numéricos" required><br><br>
+        <input type="submit" value="Gerar Chave">
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="flash-message">
+        {% for message in messages %}
+        {% if 'error' in message %}
+        <div class="flash-error">{{ message }}</div>
+        {% elif 'success' in message %}
+        <div class="flash-success">{{ message }}</div>
+        {% else %}
+        <div class="flash-message">{{ message }}</div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Chave Gerada</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .chave-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .chave {
+            font-size: 18px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .nome-loja {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        .copy-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .copy-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chave Gerada</h1>
+    <div class="chave-container">
+        <p>Chave gerada para a loja <span class="nome-loja">{{ nome_loja }}</span>:</p>
+        <div class="chave">{{ chave }}</div>
+        <button class="copy-button" onclick="copyChave()">Copiar Chave</button>
+        <br><br>
+        <a href="/" style="text-decoration: none; color: #4CAF50;">Voltar para o início</a>
+    </div>
+
+    <script>
+        function copyChave() {
+            var chaveText = document.querySelector('.chave');
+            var range = document
+        }
