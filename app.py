@@ -17,7 +17,7 @@ def gerar_chave():
         hora = request.form['hora']
         adesao = request.form['adesao']
 
-        # Mapeamento de código para nome e código da loja
+        
         if loja_codigo == '1':
             nome_loja = 'Grupo Cred'
             codigo_loja = '7897'
